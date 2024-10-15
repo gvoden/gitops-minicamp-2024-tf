@@ -25,7 +25,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-region: us-east-1
-        role-to-assume: arn:aws:iam::087120880573:role/oidc-role-gitops2024Role-IxepLdv1T1RW
+        role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
     
     - name: Checkout
       uses: actions/checkout@v4
