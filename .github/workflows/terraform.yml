@@ -17,9 +17,16 @@ jobs:
     defaults:
       run:
         shell: bash
+        working-directory: ./terraform
 
     steps:
     # Checkout the repository to the GitHub Actions runner
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: us-east-1
+        role-to-assume: arn:aws:iam::087120880573:role/oidc-role-gitops2024Role-IxepLdv1T1RW
+    
     - name: Checkout
       uses: actions/checkout@v4
 
